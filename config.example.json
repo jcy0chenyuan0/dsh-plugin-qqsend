@@ -1,0 +1,21 @@
+{
+  "transport": "onebot",
+  "safety": {
+    "allowSend": false,
+    "maxPerMinute": 5,
+    "maxPerTargetPerHour": 20,
+    "allowlist": []
+  },
+  "onebot": {
+    "baseUrl": "http://127.0.0.1:3000",
+    "token": "",
+    "timeoutMs": 15000
+  },
+  "napcat": {
+    "dir": null
+  },
+  "qqchat": {
+    "decryptedDir": null,
+    "keymapPath": null
+  }
+}

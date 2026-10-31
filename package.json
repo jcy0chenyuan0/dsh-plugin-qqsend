@@ -1,0 +1,49 @@
+{
+  "name": "dsh-plugin-qqsend",
+  "version": "1.2.0",
+  "private": true,
+  "description": "DSH 插件：向 QQ 群/好友发消息、发文件（支持系统表情 / 贴图表情包 / 连发 / 引用 / 定时发送 / 上传文件）。默认 dry-run，真实发送需显式开启并过闸门。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "engine/qqsend",
+    "cordis.patch.yml",
+    "config.example.json",
+    "README.md",
+    "cordis.patch.yml.tpl",
+    ".gitignore",
+    "engine/tests",
+    "install.ps1",
+    "install.mjs",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh-bundle",
+    "qq",
+    "onebot",
+    "napcat",
+    "send",
+    "write"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcy0chenyuan0/dsh-plugin-qqsend.git"
+  },
+  "homepage": "https://github.com/jcy0chenyuan0/dsh-plugin-qqsend#readme",
+  "bugs": {
+    "url": "https://github.com/jcy0chenyuan0/dsh-plugin-qqsend/issues"
+  }
+}
