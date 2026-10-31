@@ -128,6 +128,25 @@ python -m qqsend schedule run --confirm
 > **首次安装**：先在本目录运行 `install.ps1`（Windows）或 `node install.mjs`（macOS/Linux）。
 > 脚本按当前目录自动生成 `cordis.patch.yml`（已 `.gitignore`），不写死任何盘符。
 
+### 缺少环境怎么办（默认自动安装）
+
+安装时 `install.ps1` **默认静默安装**缺失环境；只想检查时加 `-CheckOnly`：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+# 只检查、不安装：
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -CheckOnly
+```
+
+插件加载时也会在后台运行 `bootstrap.ps1 -AutoInstall -Quiet`（6 小时内不重复），不阻塞 DSH 启动；首次装完可能需要重试工具。
+
+- **Python**：优先用 DSH 自带运行时；没有则 `winget install Python.Python.3.12 --scope user`。
+- **QQ NT**：`winget install --id Tencent.QQ.NT -e`。
+- **NapCat**：不通过 winget 安装；从 <https://github.com/NapNeko/NapCatQQ> 装 Shell 版，然后在 `config.json` 的 `napcat.dir` 指向安装目录（或设置 `NAPCAT_HOME`）。
+- 安装完 QQ 后仍需手动登录；真实发送还要过 `safety.allowSend` 闸门。
+- 关闭自动安装：patch 的 `config` 里设 `autoInstall: false`，或设置环境变量 `DSH_BOOTSTRAP=0`。
+
+
 1. 安装 bundle：先在本目录运行 `install.ps1`（Windows）或 `node install.mjs`（macOS/Linux），再在 GUI「设置 → 插件 → 安装 → 本地路径」填本目录的绝对路径；
 2. 复制 `config.example.json` 为 `config.json`，按需修改；
 3. **重启 DSH**（改代码不热生效）。

@@ -21,7 +21,9 @@
     "engine/tests",
     "install.ps1",
     "install.mjs",
-    "LICENSE"
+    "LICENSE",
+    "bootstrap.ps1",
+    "lib/bootstrap.js"
   ],
   "dsh": {
     "bundle": {
